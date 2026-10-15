@@ -44,7 +44,7 @@ jobs:
       # and it would not stop an old patch of a newer minor.
       - uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6
         with:
-          go-version: "1.25.14"
+          go-version: "1.26.9"
 
       - name: Run release gates
         shell: bash
@@ -54,7 +54,7 @@ jobs:
           # running is that toolchain. A pin nothing verifies is a claim, and
           # this repository's whole subject is the difference between a recorded
           # claim and a verified one.
-          go version | grep -qF 'go1.25.14 ' || { echo "toolchain drift: $(go version), expected go1.25.14"; exit 1; }
+          go version | grep -qF 'go1.26.9 ' || { echo "toolchain drift: $(go version), expected go1.26.9"; exit 1; }
           go vet ./...
           go test ./...
           make check
