@@ -15,26 +15,28 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
 
       # Pinned to the same exact patch the release workflow uses. govulncheck's
       # source mode reports standard-library vulnerabilities against whatever Go
-      # is on PATH, so scanning on a floating `1.25.x` would answer a different
+      # is on PATH, so scanning on a floating `1.26.x` would answer a different
       # question than the release does: a stdlib issue present in the release
       # toolchain could be absent here, and the pull request would pass while the
       # release fails, or worse, the reverse.
       - name: Set up Go
-        uses: actions/setup-go@v5
+        uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6.5.0
         with:
-          go-version: "1.25.14"
+          go-version: "1.26.9"
           cache: true
 
       - name: Assert the pinned toolchain is the one running
         shell: bash
         run: |
           set -euo pipefail
-          go version | grep -qF 'go1.25.14 ' || {
-            echo "toolchain drift; expected go1.25.14 but got:"
+          go version | grep -qF 'go1.26.9 ' || {
+            echo "toolchain drift; expected go1.26.9 but got:"
             go version
             exit 1
           }
