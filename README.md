@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/luckyPipewrench/agent-evidence-levels/actions/workflows/check.yml"><img src="https://github.com/luckyPipewrench/agent-evidence-levels/actions/workflows/check.yml/badge.svg" alt="Check"></a>
+  <a href="https://github.com/pipelab-org/agent-evidence-levels/actions/workflows/check.yml"><img src="https://github.com/pipelab-org/agent-evidence-levels/actions/workflows/check.yml/badge.svg" alt="Check"></a>
   <a href="https://go.dev/dl/"><img src="https://img.shields.io/badge/Go-1.25%2B-00e5a0?logo=go&logoColor=white&labelColor=0e0e11" alt="Go 1.25+"></a>
   <a href="LICENSE-SPEC"><img src="https://img.shields.io/badge/Spec-CC_BY_4.0-00e5a0?labelColor=0e0e11" alt="Specification license: CC BY 4.0"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/Code-Apache_2.0-00e5a0?labelColor=0e0e11" alt="Code license: Apache 2.0"></a>

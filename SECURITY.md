@@ -4,7 +4,7 @@
 
 ## Report a vulnerability
 
-Report vulnerabilities privately through [GitHub Security Advisories](https://github.com/luckyPipewrench/agent-evidence-levels/security/advisories/new). Don't open a public issue for an undisclosed vulnerability.
+Report vulnerabilities privately through [GitHub Security Advisories](https://github.com/pipelab-org/agent-evidence-levels/security/advisories/new). Don't open a public issue for an undisclosed vulnerability.
 
 Include the affected commit or release, the impact, and enough detail to reproduce the problem without relying on private infrastructure. Please keep the report and any exploit details private until a fix or disclosure plan is agreed.
 
