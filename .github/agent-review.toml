@@ -1,0 +1,12 @@
+[review]
+instructions = """
+Review the evidence standard, reference checker, schemas, and conformance corpus.
+Keep PASS, FAIL, and UNABLE-TO-VERIFY distinct. Check specification and checker
+parity, provenance, signatures, independent-verifier requirements, and rejection
+of malformed or incomplete artifacts. Generator-owned fixtures and manifests must
+remain reproducible. Preserve vendor neutrality and the licensing split described
+in LICENSING.md. Check workflow credential scope and immutable dependency pins.
+"""
+
+[ignore]
+glob = ["**/go.sum"]
