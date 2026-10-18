@@ -1,6 +1,6 @@
 # .coderabbit.yaml — CodeRabbit configuration for agent-evidence-levels (repo root).
 # CodeRabbit is advisory only. The repository own reviewer workflow
-# (.github/workflows/pr-review.yaml) is the primary automated reviewer and is not
+# (.github/workflows/agent-review.yaml) is the primary automated reviewer and is not
 # subject to CodeRabbit file limits. CodeRabbit never blocks a merge.
 language: "en-US"
 
