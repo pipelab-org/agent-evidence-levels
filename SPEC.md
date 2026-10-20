@@ -193,7 +193,7 @@ This contract bounds replay rather than eliminating it. An authenticated `curren
 
 **The verification limit.** A signed package proves that the verifier signed its manifest; it cannot prove that the named command ran or that the verifier reported it truthfully. Carrying the artifact, inputs, results, and corpus result makes the claim replayable and therefore falsifiable. A relying party still chooses which verifier identity, checker implementation, and status authority to trust. Replay can expose a false result; packaging cannot make dishonesty impossible.
 
-**Open question: detection latency.** AEL does not currently bound the time between forgery or omission and its detection. Defining such a bound would require checkpoint cadence and an explicit checking obligation, within the detection limits of the applicable rung. This remains an open question; existing rungs carry no detection-time guarantee, including eventual detection of events they cannot observe.
+**Open question: detection latency.** AEL does not bound the time between a forgery or omission and its detection. The heartbeat interval H and an anchoring cadence limit how much evidence can be missing or unanchored, not when anyone checks it. No rung requires a verifier to check at any particular time, or at all, so no rung promises that a forgery or omission is detected by a deadline, or ever. A bound would need a new checking obligation with its own checker duty and fixture, and it could only cover what the rung can see. This remains an open question.
 
 **Per-rung limits, restated plainly:**
 
