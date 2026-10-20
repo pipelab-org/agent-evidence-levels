@@ -6,6 +6,7 @@ ael0/noncanonical
 ael0/tail_truncated_silent
 ael0/transpose
 ael0/unpublished_key
+ael0/unsigned_hash_chain
 ael0/valid
 ael1/ext_field_accepted
 ael1/heartbeat_deleted

@@ -1,0 +1,13 @@
+{
+  "runs": [
+    {
+      "id": "run-ael0-unsigned-hash-chain",
+      "grade": "ungraded",
+      "r": "pending",
+      "must": {
+        "a": "FAIL"
+      }
+    }
+  ],
+  "note": "Synthetic in-process records have coherent SHA-256 payload links, empty signature segments, and no published key. Empty signatures fail the compact record syntax before payload parsing or key lookup. This case doesn't establish checker validation of the links or support for external unsigned JSONL formats."
+}
