@@ -107,6 +107,7 @@ asserts each case matches its `expect.json`.
 | `ael0/interior_del` | (none) | e | predecessor-link check FAIL; sequence-order check PASS |
 | `ael0/noncanonical` | — | b | check b FAIL |
 | `ael0/dupkey` | — | b | check b FAIL |
+| `ael0/unsigned_hash_chain` | (none) | a | coherent payload links, empty signatures, no published key; compact syntax fails before payload parsing, grade ungraded, check a FAIL |
 | `ael0/unpublished_key` | — | a (UV) | check a **UV** (grade ungraded, distinct from FAIL) |
 | `ael0/bad_key_length` | — | a (UV) | malformed published key is treated as **UV**, not artifact FAIL |
 | `ael0/tail_truncated_silent` | AEL-0 | AEL-0 limitation | tail-truncated AEL-0 chain still grades 0 |

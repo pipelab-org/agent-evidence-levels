@@ -1072,6 +1072,18 @@ func buildCases(priv ed25519.PrivateKey, fp string) ([]caseDef, error) {
 	if err != nil {
 		return nil, err
 	}
+	ael0Unsigned, err := buildRecords(priv, "run-ael0-unsigned-hash-chain", "r1", fp, []recordPlan{
+		open("2026-01-01T00:00:00Z", 0, 0),
+		activity("2026-01-01T00:00:10Z", "net", "evt-1", "out", nil, nil),
+		closePlan("2026-01-01T00:00:20Z", nil, ""),
+	})
+	if err != nil {
+		return nil, err
+	}
+	for i := range ael0Unsigned {
+		ael0Unsigned[i].sig = nil
+	}
+
 	ael0Four, err := buildRecords(priv, "run-ael0-perturb", "r1", fp, []recordPlan{
 		open("2026-01-01T00:00:00Z", 0, 0),
 		activity("2026-01-01T00:00:10Z", "net", "evt-1", "out", nil, nil),
@@ -1715,6 +1727,14 @@ func buildCases(priv ed25519.PrivateKey, fp string) ([]caseDef, error) {
 		{name: "ael0/interior_del", records: interiorDel, expect: expect("ungraded", "pending", map[string]string{"d": "PASS", "e": "FAIL"})},
 		{name: "ael0/noncanonical", records: noncanonical, expect: expect("ungraded", "pending", map[string]string{"b": "FAIL"})},
 		{name: "ael0/dupkey", records: dupKey, expect: expect("ungraded", "pending", map[string]string{"b": "FAIL"})},
+		{
+			name: "ael0/unsigned_hash_chain", records: ael0Unsigned,
+			omitKeys: map[string]bool{fp: true}, coverage: "declared-only", custody: "same-process",
+			expect: expected{
+				Runs: []runExpected{{ID: "run-ael0-unsigned-hash-chain", Grade: "ungraded", R: "pending", Must: map[string]string{"a": "FAIL"}}},
+				Note: "Synthetic in-process records have coherent SHA-256 payload links, empty signature segments, and no published key. Empty signatures fail the compact record syntax before payload parsing or key lookup. This case doesn't establish checker validation of the links or support for external unsigned JSONL formats.",
+			},
+		},
 		{name: "ael0/unpublished_key", records: ael0Valid, publishKeys: false, expect: expect("ungraded", "pending", map[string]string{"a": "UV"})},
 		{name: "ael0/bad_key_length", records: ael0Valid, badKeyFiles: map[string][]byte{fp: []byte(base64.StdEncoding.EncodeToString([]byte("short")) + "\n")}, expect: expect("ungraded", "pending", map[string]string{"a": "UV"})},
 		{name: "ael0/tail_truncated_silent", records: ael0Valid[:2], expect: expect(0, "pending", map[string]string{"a": "PASS", "b": "PASS", "d": "PASS", "e": "PASS"})},
